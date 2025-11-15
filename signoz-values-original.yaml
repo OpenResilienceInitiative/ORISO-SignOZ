@@ -1,0 +1,29 @@
+# SigNoz Custom Configuration for Caritas
+frontend:
+  service:
+    type: NodePort
+    port: 3301
+    nodePort: 30301
+
+queryService:
+  service:
+    type: ClusterIP
+
+otelCollector:
+  service:
+    type: NodePort
+    ports:
+      otlp:
+        servicePort: 4317
+        nodePort: 30317
+      otlp-http:
+        servicePort: 4318
+        nodePort: 30318
+
+clickhouse:
+  persistence:
+    size: 20Gi
+
+alertmanager:
+  service:
+    type: ClusterIP
