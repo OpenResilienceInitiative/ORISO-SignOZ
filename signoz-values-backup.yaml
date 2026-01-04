@@ -1,0 +1,25 @@
+USER-SUPPLIED VALUES:
+alertmanager:
+  service:
+    type: ClusterIP
+clickhouse:
+  persistence:
+    size: 20Gi
+frontend:
+  service:
+    nodePort: 30301
+    port: 3301
+    type: NodePort
+otelCollector:
+  service:
+    ports:
+      otlp:
+        nodePort: 30317
+        servicePort: 4317
+      otlp-http:
+        nodePort: 30318
+        servicePort: 4318
+    type: NodePort
+queryService:
+  service:
+    type: ClusterIP
